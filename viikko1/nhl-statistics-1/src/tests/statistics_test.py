@@ -42,7 +42,12 @@ class TestStatistics(unittest.TestCase):
         players = self.statistics.team("EDM")
         self.assertEquals(len(players), 3)
 
-    def test_top_scorers_single_player(self):
+    def test_top_scorers_returns_the_best_player(self):
         top_scorers = self.statistics.top_scorers(1)
         self.assertEquals(len(top_scorers), 1)
         self.assertEquals(top_scorers[0].name, "Gretzky")
+
+    def test_top_scorers_returns_top_three(self):
+        top_scorers = self.statistics.top_scorers(3)
+        self.assertEquals(len(top_scorers), 3)
+        self.assertEquals(top_scorers[2].name, "Yzerman")
