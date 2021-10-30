@@ -41,3 +41,8 @@ class TestStatistics(unittest.TestCase):
     def test_search_bigger_team(self):
         players = self.statistics.team("EDM")
         self.assertEquals(len(players), 3)
+
+    def test_top_scorers_single_player(self):
+        top_scorers = self.statistics.top_scorers(1)
+        self.assertEquals(len(top_scorers), 1)
+        self.assertEquals(top_scorers[0].name, "Gretzky")
